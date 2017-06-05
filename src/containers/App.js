@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import './App.css';
-
+// router
 import {
   BrowserRouter as Router,
   Route,
@@ -11,11 +8,16 @@ import {
   Redirect,
   withRouter
 } from 'react-router-dom'
-
+// material-ui
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// CSS
+import './App.css';
+// pages
 import HomePage from 'components/HomePage.jsx';
+import SignUpPage from './SignUpPage.jsx';
 // import LoginPage from './containers/LoginPage.jsx';
 // import LogoutFunction from './containers/LogoutFunction.jsx';
-// import SignUpPage from './containers/SignUpPage.jsx';
 // import DashboardPage from './containers/DashboardPage.jsx';
 // import Auth from './modules/Auth';
 
@@ -74,12 +76,12 @@ class Main extends Component {
 
   render() {
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme()}>
+      <MuiThemeProvider >
         <Router>
           <div>
             <div className="top-bar">
               <div className="top-bar-left">
-                <Link to="/">React App</Link>
+                <Link to="/">No Meat May</Link>
               </div>
               {/* {this.state.authenticated ? (
                 <div className="top-bar-right">
@@ -97,18 +99,11 @@ class Main extends Component {
                 <Link to="/login">Log in</Link>
                 <Link to="/signup">Sign up</Link>
               </div>
-
             </div>
 
-            {/* <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
-            <PrivateRoute path="/dashboard" component={DashboardPage}/>
-            <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
-            <LoggedOutRoute path="/signup" component={SignUpPage}/> */}
             <Route exact path="/" component={HomePage}/>
-            {/* <Route path="/login" component={LoginPage}/> */}
-            {/* <Route path="/logout" component={LogoutFunction}/> */}
+            <Route path="/signup" component={SignUpPage}/>
           </div>
-
         </Router>
       </MuiThemeProvider>
     );
@@ -116,22 +111,6 @@ class Main extends Component {
 }
 
 export default Main;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // class App extends Component {
 //

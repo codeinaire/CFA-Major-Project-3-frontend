@@ -1,17 +1,19 @@
 body {
   margin: 50;
   font-size: 16px;
+  font-family: 'Kelly Slab', cursive;
+  background-color: rgba(100,111,226,.1);
 }
 
 a {
-  color: #00bcd4;
+  color: #f7db07;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.4s;
 }
 
 a:hover {
-  color: #1976d2;
+  color: #b00587;
 }
 
 .text-center {
@@ -21,6 +23,8 @@ a:hover {
 .top-bar {
   padding: 10px 15px;
   margin-bottom: 50px;
+  background-color: #646fe2;
+  box-shadow: 2px 4px 10px #000;
 }
 .top-bar::after {
   content: '';

@@ -1,14 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+
+// css
+import './HomePage.css';
+
+// material-ui
 import { Card, CardTitle, CardMedia } from 'material-ui/Card';
 import { GridList, GridTile } from 'material-ui/GridList';
-import './HomePage.css';
+import IconButton from 'material-ui/IconButton';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import Subheader from 'material-ui/Subheader';
+import RaisedButton from 'material-ui/RaisedButton';
+
+// images
 import Banner from 'images/bannerNMM.jpg'
 import Cow from 'images/cow.jpg'
 import Earth from 'images/earth.jpg'
 import Hungry from 'images/hungry.jpg'
 import You from 'images/run.jpg'
-import IconButton from 'material-ui/IconButton';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+
 
 const tilesData = [
   {
@@ -30,46 +40,80 @@ const tilesData = [
   ]
 
   const styles = {
-    root: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-around',
-    },
-    gridList: {
-      display: 'flex',
-      flexWrap: 'nowrap',
-      overflowX: 'auto',
-    },
-    titleStyle: {
-      color: 'rgb(0, 188, 212)',
-    },
-  };
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    background: '#f7db07',
+    marginLeft: '10%',
+    marginRight: '10%',
+    boxShadow: '0px 0px 50px -30px #000'
+  },
+  gridList: {
+    width: 1000,
+    height: 550,
+    // overflowY: 'auto',
+  },
+  tiles: {
+    border: '2px solid #646fe2',
+  },
+  title: {
+    color: '#f7db07'
+  },
+  button: {
+    background: '#f7db07',
+    color: '#646fe2',
+    height: '100px',
+    width: '700px'
+  },
+  overlay: {
+    height: '100px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  label: {
+    fontSize: '46px',
+    fontWeight: 'bold',
+    color: '#646fe2'
+  },
+
+};
 
 
 const HomePage = () => (
   <div>
-    <Card className="container">
+    <Card className="container banner">
       <CardMedia>
         <img src={Banner}/>
       </CardMedia>
-      <CardTitle title="React Application" subtitle="This is the home page." />
     </Card>
+    <br/>
+    <br/>
     <div style={styles.root}>
-    <GridList style={styles.gridList} cols={2.2}>
-       {tilesData.map((tile) => (
-         <GridTile
-           key={tile.img}
-           title={tile.title}
-           actionIcon={<IconButton><StarBorder color="rgb(0, 188, 212)" /></IconButton>}
-           titleStyle={styles.titleStyle}
-           titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-         >
-           <img src={tile.img} />
-         </GridTile>
-       ))}
-     </GridList>
-   </div>
- </div>
+      <GridList style={styles.gridList} padding={10} cols={2} cellHeight={280}>
+        {tilesData.map((tile) => (
+          <GridTile
+            style={styles.tiles}
+            key={tile.img}
+            titleStyle={styles.title}
+            title={tile.title}
+            subtitleStyle={styles.title}
+            subtitle={<span>by <b>{tile.author}</b></span>}
+            titleBackground="linear-gradient(to top, rgba(100,111,226, .7) 0%,rgba(100,111,226,.5) 70%,rgba(100,111,226, 0) 100%)"
+          >
+            <img src={tile.img} />
+          </GridTile>
+        ))}
+      </GridList>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <Card className="container">
+      <Link to="/signup"><RaisedButton label="Let's Get Started!!" labelStyle={styles.label} fullWidth={true} buttonStyle={styles.button} overlayStyle={styles.overlay} /></Link>
+    </Card>
+  </div>
 );
 
 export default HomePage;
