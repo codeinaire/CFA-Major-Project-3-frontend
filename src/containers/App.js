@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import Auth from 'modules/Auth';
 // router
 import {
   BrowserRouter as Router,
@@ -64,15 +65,15 @@ class Main extends Component {
     }
   };
 
-  // componentDidMount() {
-  //   // check if user is logged in on refresh
-  //   this.toggleAuthenticateStatus()
-  // }
-  //
-  // toggleAuthenticateStatus() {
-  //   // check authenticated status and toggle state based on that
-  //   this.setState({ authenticated: Auth.isUserAuthenticated() })
-  // }
+  componentDidMount() {
+    // check if user is logged in on refresh
+    this.toggleAuthenticateStatus()
+  }
+
+  toggleAuthenticateStatus() {
+    // check authenticated status and toggle state based on that
+    this.setState({ authenticated: Auth.isUserAuthenticated() })
+  }
 
   render() {
     return (

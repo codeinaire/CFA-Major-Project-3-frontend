@@ -43,7 +43,8 @@ class SignUpPage extends Component {
 
     // create an AJAX request
     const xhr = new XMLHttpRequest();
-    xhr.open('post', '/auth/signup');
+    // NOTE I'm probably going to have to change this once I upload this to heroku... I'll probably have to change it to the host name of the backend.
+    xhr.open('post', 'http://localhost:3001/auth/signup');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
@@ -59,7 +60,8 @@ class SignUpPage extends Component {
         localStorage.setItem('successMessage', xhr.response.message);
 
         // make a redirect
-        this.context.router.replace('/login');
+        // this.context.router.replace('/login');
+        this.props.history.push('/login');
       } else {
         // failure
 
