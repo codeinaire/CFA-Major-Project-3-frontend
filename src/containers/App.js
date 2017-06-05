@@ -17,7 +17,7 @@ import './App.css';
 // pages
 import HomePage from 'components/HomePage.jsx';
 import SignUpPage from './SignUpPage.jsx';
-// import LoginPage from './containers/LoginPage.jsx';
+import LoginPage from './LoginPage.jsx';
 // import LogoutFunction from './containers/LogoutFunction.jsx';
 // import DashboardPage from './containers/DashboardPage.jsx';
 // import Auth from './modules/Auth';
@@ -104,6 +104,7 @@ class Main extends Component {
 
             <Route exact path="/" component={HomePage}/>
             <Route path="/signup" component={SignUpPage}/>
+            <Route path="/login" component={LoginPage}/>
           </div>
         </Router>
       </MuiThemeProvider>
