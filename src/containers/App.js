@@ -18,44 +18,43 @@ import './App.css';
 import HomePage from 'components/HomePage.jsx';
 import SignUpPage from './SignUpPage.jsx';
 import LoginPage from './LoginPage.jsx';
-// import LogoutFunction from './containers/LogoutFunction.jsx';
-// import DashboardPage from './containers/DashboardPage.jsx';
-// import Auth from './modules/Auth';
+import LogoutFunction from './LogoutFunction.jsx';
+import DashboardPage from './DashboardPage.jsx';
 
 // remove tap delay, essential for MaterialUI to work properly
 injectTapEventPlugin();
 
-// const PrivateRoute = ({ component: Component, ...rest }) => (
-//   <Route {...rest} render={props => (
-//     Auth.isUserAuthenticated() ? (
-//       <Component {...props}/>
-//     ) : (
-//       <Redirect to={{
-//         pathname: '/',
-//         state: { from: props.location }
-//       }}/>
-//     )
-//   )}/>
-// )
-//
-// const LoggedOutRoute = ({ component: Component, ...rest }) => (
-//   <Route {...rest} render={props => (
-//     Auth.isUserAuthenticated() ? (
-//       <Redirect to={{
-//         pathname: '/',
-//         state: { from: props.location }
-//       }}/>
-//     ) : (
-//       <Component {...props} {...rest} />
-//     )
-//   )}/>
-// )
-//
-// const PropsRoute = ({ component: Component, ...rest }) => (
-//   <Route {...rest} render={props => (
-//     <Component {...props} {...rest} />
-//   )}/>
-// )
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    Auth.isUserAuthenticated() ? (
+      <Component {...props}/>
+    ) : (
+      <Redirect to={{
+        pathname: '/',
+        state: { from: props.location }
+      }}/>
+    )
+  )}/>
+)
+
+const LoggedOutRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    Auth.isUserAuthenticated() ? (
+      <Redirect to={{
+        pathname: '/',
+        state: { from: props.location }
+      }}/>
+    ) : (
+      <Component {...props} {...rest} />
+    )
+  )}/>
+)
+
+const PropsRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => (
+    <Component {...props} {...rest} />
+  )}/>
+)
 
 class Main extends Component {
   constructor(props) {
@@ -82,29 +81,32 @@ class Main extends Component {
           <div>
             <div className="top-bar">
               <div className="top-bar-left">
-                <Link to="/">No Meat May</Link>
+                <Link to="/">React App</Link>
               </div>
-              {/* {this.state.authenticated ? (
+              {this.state.authenticated ? (
                 <div className="top-bar-right">
                   <Link to="/dashboard">Dashboard</Link>
                   <Link to="/logout">Log out</Link>
+                  <Link to="/login">Log in</Link>
                 </div>
               ) : (
                 <div className="top-bar-right">
                   <Link to="/login">Log in</Link>
                   <Link to="/signup">Sign up</Link>
                 </div>
-              )} */}
+              )}
 
-              <div className="top-bar-right">
-                <Link to="/login">Log in</Link>
-                <Link to="/signup">Sign up</Link>
-              </div>
             </div>
 
-            <Route exact path="/" component={HomePage}/>
-            <Route path="/signup" component={SignUpPage}/>
-            <Route path="/login" component={LoginPage}/>
+
+            {/* <Route exact path="/" component={HomePage}/>
+            <Route path="/signup" component={SignUpPage}/> */}
+            {/* <Route path="/login" component={LoginPage}/> */}
+            <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
+            <PrivateRoute path="/dashboard" component={DashboardPage}/>
+            <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
+            <LoggedOutRoute path="/signup" component={SignUpPage}/>
+            <Route path="/logout" component={LogoutFunction}/>
           </div>
         </Router>
       </MuiThemeProvider>
