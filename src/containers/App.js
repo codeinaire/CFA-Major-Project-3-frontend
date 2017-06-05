@@ -6,8 +6,7 @@ import {
   BrowserRouter as Router,
   Route,
   Link,
-  Redirect,
-  withRouter
+  Redirect
 } from 'react-router-dom'
 // material-ui
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -76,7 +75,7 @@ class Main extends Component {
 
   render() {
     return (
-      <MuiThemeProvider >
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
         <Router>
           <div>
             <div className="top-bar">
@@ -99,8 +98,8 @@ class Main extends Component {
             </div>
 
 
-            {/* <Route exact path="/" component={HomePage}/>
-            <Route path="/signup" component={SignUpPage}/> */}
+            {/* <Route exact path="/" component={HomePage}/> */}
+            {/* <Route path="/signup" component={SignUpPage}/> */}
             {/* <Route path="/login" component={LoginPage}/> */}
             <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
             <PrivateRoute path="/dashboard" component={DashboardPage}/>

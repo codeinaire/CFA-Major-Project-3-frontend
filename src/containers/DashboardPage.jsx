@@ -22,7 +22,8 @@ class DashboardPage extends React.Component {
    */
   componentDidMount() {
     const xhr = new XMLHttpRequest();
-    xhr.open('get', 'http://localhost:3001/api/dashboard');
+    // NOTE change this for deployment
+    xhr.open('get', 'http://localhost:3001/api/dashboard', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     // set the authorization HTTP header
     xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);

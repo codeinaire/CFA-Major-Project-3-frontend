@@ -5,11 +5,8 @@ import { Link } from 'react-router-dom'
 import './HomePage.css';
 
 // material-ui
-import { Card, CardTitle, CardMedia } from 'material-ui/Card';
+import { Card, CardMedia } from 'material-ui/Card';
 import { GridList, GridTile } from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-import Subheader from 'material-ui/Subheader';
 import RaisedButton from 'material-ui/RaisedButton';
 
 // images

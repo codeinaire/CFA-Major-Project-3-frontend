@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SignUpForm from '../components/SignUpForm.jsx';
-import { Link, BrowserRouter as Router } from 'react-router-dom';
-
 
 class SignUpPage extends Component {
 
