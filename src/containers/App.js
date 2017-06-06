@@ -102,7 +102,7 @@ class Main extends Component {
             {/* <Route path="/signup" component={SignUpPage}/> */}
             {/* <Route path="/login" component={LoginPage}/> */}
             <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
-            <PrivateRoute path="/dashboard" component={DashboardPage}/>
+            <PrivateRoute path="/profileform" component={ProfileFormPage}/>
             <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
             <LoggedOutRoute path="/signup" component={SignUpPage}/>
             <Route path="/logout" component={LogoutFunction}/>
