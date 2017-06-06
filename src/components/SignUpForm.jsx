@@ -4,7 +4,14 @@ import { Link } from 'react-router-dom';
 import { Card, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 
+const styles = {
+  customWidth: {
+    width: 300,
+  },
+};
 
 const SignUpForm = ({
   onSubmit,
@@ -47,6 +54,34 @@ const SignUpForm = ({
           errorText={errors.password}
           value={user.password}
         />
+      </div>
+
+      <div className="field-line">
+        <TextField
+          floatingLabelText="Location"
+          name="location"
+          onChange={onChange}
+          errorText={errors.location}
+          value={user.location}
+        />
+      </div>
+
+      <div className="field-line">
+        <SelectField
+          floatingLabelText="Motivation"
+          name="motivation"
+          value={user.motivation}
+          onChange={onChange}
+          errorText={errors.motivation}
+          style={styles.customWidth}
+          autoWidth={false}
+        >
+          <MenuItem value={1} primaryText="Personal Health" />
+          <MenuItem value={2} primaryText="Animal Welfare" />
+          <MenuItem value={3} primaryText="Environmental Health" />
+          <MenuItem value={4} primaryText="Food Equity" />
+          <MenuItem value={5} primaryText="All of the Above" />
+        </SelectField>
       </div>
 
       <div className="button-line">

@@ -16,7 +16,9 @@ class SignUpPage extends Component {
       user: {
         email: '',
         name: '',
-        password: ''
+        password: '',
+        location: '',
+        motivation: 5
       }
     };
 
@@ -37,7 +39,9 @@ class SignUpPage extends Component {
     const name = encodeURIComponent(this.state.user.name);
     const email = encodeURIComponent(this.state.user.email);
     const password = encodeURIComponent(this.state.user.password);
-    const formData = `name=${name}&email=${email}&password=${password}`;
+    const location = encodeURIComponent(this.state.user.location);
+    const motivation = encodeURIComponent(this.state.user.motivation);
+    const formData = `name=${name}&email=${email}&password=${password}&location=${location}&motivation=${motivation}`;
 
     // create an AJAX request
     const xhr = new XMLHttpRequest();
@@ -79,10 +83,14 @@ class SignUpPage extends Component {
    *
    * @param {object} event - the JavaScript event object
    */
-  changeUser(event) {
+  changeUser(event, index, value) {
+  console.log("event:", event.target.value);
     const field = event.target.name;
     const user = this.state.user;
+    let motivation = this.state.user.motivation;
+    console.log('motivation after variable: ', motivation);
     user[field] = event.target.value;
+    motivation = event.target.value;
 
     this.setState({
       user
