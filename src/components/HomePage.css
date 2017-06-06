@@ -1,0 +1,21 @@
+.root {
+    display: flex;
+    flexWrap: wrap;
+    justifyContent: space-around;
+}
+
+.gridList {
+    display: flex;
+    flexWrap: nowrap;
+    overflowX: auto;
+}
+
+.titleStyle {
+    color: rgb(0, 188, 212);
+}
+
+.banner {
+  border: 10px solid #f7db07;
+  border-left: 100px solid #f7db07;
+  border-right: 100px solid #f7db07;
+}
