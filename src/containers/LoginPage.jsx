@@ -50,6 +50,7 @@ class LoginPage extends React.Component {
 
     // create an AJAX request
     const xhr = new XMLHttpRequest();
+    // NOTE I may have to change this as well as in the signuppage
     xhr.open('post', 'https://nomeatmay.herokuapp.com/auth/login');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = 'json';
