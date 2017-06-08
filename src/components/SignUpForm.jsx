@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './SignUpForm.css'
 import { Link } from 'react-router-dom';
 import { Card, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -16,10 +17,12 @@ const styles = {
 const SignUpForm = ({
   onSubmit,
   onChange,
-  errors,
   user,
+  errors,
+  onChangeMenu,
+  value,
 }) => (
-  <Card className="container">
+  <Card className="container styles">
     <form action="/" onSubmit={onSubmit}>
       <h2 className="card-heading">Sign Up</h2>
 
@@ -71,8 +74,8 @@ const SignUpForm = ({
           floatingLabelText="Motivation"
           name="motivation"
           value={user.motivation}
-          onChange={onChange}
-          errorText={errors.motivation}
+          onChange={onChangeMenu}
+          errorText={errors.value}
           style={styles.customWidth}
           autoWidth={false}
         >

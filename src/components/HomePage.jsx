@@ -1,14 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-
+import { Link } from 'react-router-dom';
 // css
 import './HomePage.css';
-
 // material-ui
 import { Card, CardMedia } from 'material-ui/Card';
 import { GridList, GridTile } from 'material-ui/GridList';
 import RaisedButton from 'material-ui/RaisedButton';
-
 // images
 import Banner from 'images/bannerNMM.jpg'
 import Cow from 'images/cow.jpg'
@@ -24,7 +21,7 @@ const tilesData = [
   },
   {
     img: Cow,
-    title: 'Free The Cows',
+    title: 'Free The Animals',
   },
   {
     img: Earth,
@@ -55,7 +52,9 @@ const tilesData = [
     border: '2px solid #646fe2',
   },
   title: {
-    color: '#f7db07'
+    color: '#f7db07',
+    fontSize: '32px',
+    fontWeight: 'bold',
   },
   button: {
     background: '#f7db07',
@@ -72,7 +71,8 @@ const tilesData = [
   label: {
     fontSize: '46px',
     fontWeight: 'bold',
-    color: '#646fe2'
+    color: '#646fe2',
+    fontFamily: 'Kelly Slab',
   },
 
 };
@@ -95,9 +95,7 @@ const HomePage = () => (
             key={tile.img}
             titleStyle={styles.title}
             title={tile.title}
-            subtitleStyle={styles.title}
-            subtitle={<span>by <b>{tile.author}</b></span>}
-            titleBackground="linear-gradient(to top, rgba(100,111,226, .7) 0%,rgba(100,111,226,.5) 70%,rgba(100,111,226, 0) 100%)"
+            titleBackground="linear-gradient(to top, rgba(100,111,226, .9) 0%,rgba(100,111,226,.7) 70%,rgba(100,111,226, 0) 100%)"
           >
             <img src={tile.img} />
           </GridTile>

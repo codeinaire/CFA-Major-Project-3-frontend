@@ -18,12 +18,14 @@ class SignUpPage extends Component {
         name: '',
         password: '',
         location: '',
-        motivation: 5
-      }
+        motivation: 5,
+      },
     };
 
     this.processForm = this.processForm.bind(this);
     this.changeUser = this.changeUser.bind(this);
+    this.onChangeMenu = this.onChangeMenu.bind(this);
+
   }
 
   /**
@@ -45,8 +47,7 @@ class SignUpPage extends Component {
 
     // create an AJAX request
     const xhr = new XMLHttpRequest();
-    // NOTE I'm probably going to have to change this once I upload this to heroku... I'll probably have to change it to the host name of the backend.
-    xhr.open('post', 'http://localhost:3001/auth/signup');
+    xhr.open('post', 'https://nomeatmay.herokuapp.com/auth/signup');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
@@ -83,20 +84,23 @@ class SignUpPage extends Component {
    *
    * @param {object} event - the JavaScript event object
    */
-  changeUser(event, index, value) {
-  console.log("event:", event.target.value);
+  changeUser(event) {
     const field = event.target.name;
     const user = this.state.user;
-    let motivation = this.state.user.motivation;
-    console.log('motivation after variable: ', motivation);
     user[field] = event.target.value;
-    motivation = event.target.value;
-
     this.setState({
       user
     });
   }
 
+  onChangeMenu(event, index, value) {
+    const user = this.state.user;
+    const motivation = "motivation";
+    user[motivation] = value;
+    this.setState({
+      user
+    });
+  }
   /**
    * Render the component.
    */
@@ -106,8 +110,10 @@ class SignUpPage extends Component {
         <SignUpForm
           onSubmit={this.processForm}
           onChange={this.changeUser}
+          onChangeMenu={this.onChangeMenu}
           errors={this.state.errors}
           user={this.state.user}
+          value={this.state.value}
         />
     </div>
     );
