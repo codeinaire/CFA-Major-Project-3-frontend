@@ -8,6 +8,8 @@ class ProfileFormPage extends React.Component {
   /**
    * Class constructor.
    */
+
+   // Good use of objects as states to use as POST data
   constructor(props) {
     super(props);
 
@@ -26,6 +28,7 @@ class ProfileFormPage extends React.Component {
    */
   componentDidMount() {
     const xhr = new XMLHttpRequest();
+    // recommend using config.urls rather than hardcoding URL
     xhr.open('get', 'https://nomeatmay.herokuapp.com/api/profileform', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     // set the authorization HTTP header

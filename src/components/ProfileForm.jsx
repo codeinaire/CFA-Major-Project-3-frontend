@@ -5,6 +5,9 @@ import { Card, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 
+//Clean use of seperating containers and components, by spliting functionality and
+//presentation, code is very readible and easy to distinguish its functionality
+
 const ProfileForm = ({
   secretData,
   profileData,
@@ -63,6 +66,9 @@ const ProfileForm = ({
 
   </Card>
 );
+
+// Good use of propTypes - makes it easy to understand what type of objects
+// need to be sent through the components
 
 ProfileForm.propTypes = {
   secretData: PropTypes.string.isRequired,

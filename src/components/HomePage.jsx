@@ -13,6 +13,8 @@ import Earth from '../images/earth.jpg'
 import Hungry from '../images/hungry.jpg'
 import You from '../images/run.jpg'
 
+// Seperated the objects as a constant allowing for good readability
+// and modular code.
 
 const tilesData = [
   {
@@ -77,6 +79,10 @@ const tilesData = [
 
 };
 
+// Good use of styling outside as a constant rather than inline styling,
+// allows it to be easy to change for the future. For the future, it would
+// recommended to use the HomePage.css file you created for more complex
+// styling
 
 const HomePage = () => (
   <div>
