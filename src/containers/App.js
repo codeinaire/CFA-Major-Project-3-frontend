@@ -11,14 +11,12 @@ import {
 // material-ui
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// CSS
-import './App.css';
 // pages
 import HomePage from 'components/HomePage.jsx';
 import SignUpPage from './SignUpPage.jsx';
 import LoginPage from './LoginPage.jsx';
 import LogoutFunction from './LogoutFunction.jsx';
-import DashboardPage from './DashboardPage.jsx';
+import ProfileFormPage from './ProfileFormPage.jsx';
 
 // remove tap delay, essential for MaterialUI to work properly
 injectTapEventPlugin();
@@ -80,13 +78,12 @@ class Main extends Component {
           <div>
             <div className="top-bar">
               <div className="top-bar-left">
-                <Link to="/">React App</Link>
+                <Link to="/">No Meat May</Link>
               </div>
               {this.state.authenticated ? (
                 <div className="top-bar-right">
-                  <Link to="/dashboard">Dashboard</Link>
+                  <Link to="/dashboard">Profile Page</Link>
                   <Link to="/logout">Log out</Link>
-                  <Link to="/login">Log in</Link>
                 </div>
               ) : (
                 <div className="top-bar-right">
@@ -97,10 +94,6 @@ class Main extends Component {
 
             </div>
 
-
-            {/* <Route exact path="/" component={HomePage}/> */}
-            {/* <Route path="/signup" component={SignUpPage}/> */}
-            {/* <Route path="/login" component={LoginPage}/> */}
             <PropsRoute exact path="/" component={HomePage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
             <PrivateRoute path="/profileform" component={ProfileFormPage}/>
             <LoggedOutRoute path="/login" component={LoginPage} toggleAuthenticateStatus={() => this.toggleAuthenticateStatus()} />
