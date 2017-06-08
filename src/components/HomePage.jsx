@@ -7,11 +7,11 @@ import { Card, CardMedia } from 'material-ui/Card';
 import { GridList, GridTile } from 'material-ui/GridList';
 import RaisedButton from 'material-ui/RaisedButton';
 // images
-import Banner from 'images/bannerNMM.jpg'
-import Cow from 'images/cow.jpg'
-import Earth from 'images/earth.jpg'
-import Hungry from 'images/hungry.jpg'
-import You from 'images/run.jpg'
+import Banner from '../images/bannerNMM.jpg'
+import Cow from '../images/cow.jpg'
+import Earth from '../images/earth.jpg'
+import Hungry from '../images/hungry.jpg'
+import You from '../images/run.jpg'
 
 
 const tilesData = [
