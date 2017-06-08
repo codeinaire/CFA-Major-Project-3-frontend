@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import Auth from 'modules/Auth';
+import Auth from '../modules/Auth';
 // router
 import {
   BrowserRouter as Router,
