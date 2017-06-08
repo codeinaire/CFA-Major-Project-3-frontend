@@ -12,7 +12,7 @@ import {
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // pages
-import HomePage from './components/HomePage.jsx';
+import HomePage from '../components/HomePage.jsx';
 import SignUpPage from './SignUpPage.jsx';
 import LoginPage from './LoginPage.jsx';
 import LogoutFunction from './LogoutFunction.jsx';
